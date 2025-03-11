@@ -46,7 +46,7 @@ chrome.action.onClicked.addListener((tab) => {
                 });
             }
 
-            return paragrafo.innerHTML;
+            return paragrafo.innerHTML.toUpperCase();
         };
 
         /*
@@ -72,39 +72,90 @@ chrome.action.onClicked.addListener((tab) => {
             overlay.style.display = "flex";
             overlay.style.justifyContent = "center";
             overlay.style.alignItems = "center";
-            overlay.style.fontSize = "24px";
+            overlay.style.flexDirection = "column";
             overlay.style.zIndex = "1000";
+
+            let fontSizeLetter = 6;
 
             const contentDiv = document.createElement("div");
             contentDiv.style.color = "white";
-            contentDiv.style.fontSize = "6vh";
+            contentDiv.style.fontSize = fontSizeLetter + "vh";
             contentDiv.style.lineHeight = "1.6";
             contentDiv.style.textAlign = "center";
             contentDiv.style.fontWeight = "bold";
+            contentDiv.style.letterSpacing = "1px";
             contentDiv.style.width = "90%";
+            contentDiv.style.opacity = "0";
+            contentDiv.style.transition = "opacity 0.2s";
 
+            const indexDiv = document.createElement("div");
+            contentDiv.style.opacity = "0";
+            indexDiv.style.color = "white";
+            indexDiv.style.fontSize = "18px";
+            indexDiv.style.textAlign = "center";
+            indexDiv.style.marginTop = "15px";
+            contentDiv.style.transition = "opacity 0.2s";
+            indexDiv.innerHTML = `${indice + 1} / ${paragrafos.length}`;
 
             contentDiv.innerHTML = processarParagrafo(paragrafos[indice]);
             overlay.appendChild(contentDiv);
+            overlay.appendChild(indexDiv);
             document.body.appendChild(overlay);
 
+            // Aumenta a opacidade para mostrar o texto.
+            setTimeout(() => {
+                // Torna visível o texto.
+                contentDiv.style.opacity = "1";
+                indexDiv.style.opacity = "1";
+            }, 10);
 
             let currentIndex = indice;
 
             const verificarTecla = (event) => {
-                if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+                if (event.key === "ArrowRight" || event.key === "ArrowDown" || event.key === " ") {
                     if (currentIndex < paragrafos.length - 1) {
                         currentIndex++;
-                        contentDiv.innerHTML = processarParagrafo(paragrafos[currentIndex]);
+                        contentDiv.style.opacity = "0";
+                        indexDiv.style.opacity = "0";
+
+                        // Troca o texto após aguardar o tempo de transição.
+                        setTimeout(() => {
+                            contentDiv.innerHTML = processarParagrafo(paragrafos[currentIndex]);
+                            indexDiv.innerHTML = `${currentIndex + 1} / ${paragrafos.length}`;
+
+                            // Torna visível novamente.
+                            contentDiv.style.opacity = "1";
+                            indexDiv.style.opacity = "1";
+                        }, 200);
                     }
                 } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
                     if (currentIndex > 0) {
                         currentIndex--;
-                        contentDiv.innerHTML = processarParagrafo(paragrafos[currentIndex]);
+                        contentDiv.style.opacity = "0";
+                        indexDiv.style.opacity = "0";
+
+                        // Troca o texto após aguardar o tempo de transição.
+                        setTimeout(() => {
+                            contentDiv.innerHTML = processarParagrafo(paragrafos[currentIndex]);
+                            indexDiv.innerHTML = `${currentIndex + 1} / ${paragrafos.length}`;
+
+                            // Torna visível novamente.
+                            contentDiv.style.opacity = "1";
+                            indexDiv.style.opacity = "1";
+                        }, 200);
                     }
+                } else if (event.key === "+") {
+                    fontSizeLetter++;
+                    contentDiv.style.fontSize = fontSizeLetter + "vh";
+                } else if(event.key === "-") {
+                    fontSizeLetter--;
+                    contentDiv.style.fontSize = fontSizeLetter + "vh";
+                } else if(event.key === "Escape") {
+                    overlay.remove();
+                    document.body.style.overflow = "";
+                    document.exitFullscreen();
                 }
             };
-
 
             document.addEventListener("keydown", verificarTecla);
         };
