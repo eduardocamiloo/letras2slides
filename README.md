@@ -9,9 +9,8 @@ A extensão foi inicialmente feita pensando em ser usada em igrejas, mas pode se
 
 - Seta para a direita: avançar um slide.
 - Seta para baixo: avançar um slide.
-- Espaço: avançar um slide.
 
-- +: aumentar o tamanho da letra.
-- -: diminuir o tamanho da letra.
+- +: aumentar o tamanho da letra e do índice.
+- -: diminuir o tamanho da letra e do índice.
 
-- 2x(Esc): fechar a extensão.
+- e: fechar a extensão.

@@ -12,3 +12,16 @@
 - Para fechar os slides (e a extensão), é só clicar 2 vezes na tecla "Esc".
 - Além de passar os slides para frente com as setas de direita ou para baixo, também poderá usar a tecla espaço.
 - Todas as letras em maiúsculo.
+
+## [1.1.1] - 24/02/2025
+### Adicionado:
+- Agora quando você for aumentar o tamanho da letra, o índice também aumentará de 3 em 3px;
+
+### Alterado:
+- Tamanho inicial da letra do índice: 20px;
+- Fechar a extensão foi mudado de 2x"Esc" para "e";
+
+### Removido:
+- Transição de 200ms entre slides retirada;
+- Tecla de espaço não poderá mais ser utilizada para passar os slides;
+
