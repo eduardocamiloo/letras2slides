@@ -148,7 +148,7 @@ chrome.action.onClicked.addListener((tab) => {
                         // Remover o fundo + letras + índice.
                         overlay.remove();
 
-                        // Retornar o scroll para o normal
+                        // Retornar o scroll para o normal.
                         document.body.style.overflow = "";
 
                         // Sair da tela cheia.
