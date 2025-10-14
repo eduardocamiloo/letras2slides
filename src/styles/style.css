@@ -1,0 +1,40 @@
+#l2s-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+#l2s-content-div {
+    color: white;
+    line-height: 1.6;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+    width: 90%;
+}
+
+#l2s-repetitions-div {
+    color: white;
+    line-height: 1.6;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 15px;
+    text-decoration: underline;
+    display: none;
+}
+
+#l2s-index-div {
+    color: gray;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+}

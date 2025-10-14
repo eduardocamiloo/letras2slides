@@ -25,3 +25,14 @@
 - Transição de 200ms entre slides retirada;
 - Tecla de espaço não poderá mais ser utilizada para passar os slides;
 
+## [1.2.0] - 14/10/2025
+### Adicionado:
+- Quando dois ou mais parágrafos consecutivos são iguais, é mostrada uma marcação de repetição para que só seja apresentado uma vez.
+
+### Alterado:
+- Agora o índice da apresentação de slides ficará à direita e em baixo, na cor cinza.
+- O código-fonte conta com uma nova estrutura/organização mais limpa!
+
+### Removido:
+- O atalho de sair da apresentação de slides (tecla "e") foi removido.
+
