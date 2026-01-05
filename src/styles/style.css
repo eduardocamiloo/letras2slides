@@ -11,6 +11,7 @@
     align-items: center;
     flex-direction: column;
     z-index: 1000;
+    user-select: none;
 }
 
 #l2s-content-div {
@@ -37,4 +38,9 @@
     position: fixed;
     bottom: 30px;
     right: 30px;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.hide-cursor {
+    cursor: none !important;
 }

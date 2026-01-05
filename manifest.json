@@ -1,7 +1,7 @@
 {
     "name": "Letras2Slides",
     "description": "Transforme as letras em slides com um clique!",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "manifest_version": 3,
     "permissions": [
         "activeTab",
@@ -11,12 +11,12 @@
         "https://www.letras.mus.br/*"
     ],
     "background": {
-        "service_worker": "scripts/background.js"
+        "service_worker": "src/scripts/background.js"
     },
     "icons": {
-        "128": "img/icon.png"
+        "128": "src/img/icon.png"
     },
     "action": {
-        "default_icon": "img/icon.png"
+        "default_icon": "src/img/icon.png"
     }
 }

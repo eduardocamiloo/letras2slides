@@ -23,7 +23,7 @@ function extractText() {
 }
 
 function isEqualParagraphs(paragraphA, paragraphB) {
-    if (paragraphA.length !== paragraphB.length) return false;
+    if (paragraphA?.length !== paragraphB?.length) return false;
     return paragraphA.every((val, i) => val === paragraphB[i]);
 }
 
